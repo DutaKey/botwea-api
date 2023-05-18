@@ -1,0 +1,46 @@
+<div class="card shadow mb-4" style="width:100%">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Documentation API</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Category</th>
+                                            <th>Method</th>
+                                            <th>Version</th>
+                                            <th>Url</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                      <% readApi.forEach((item) => {%>
+                                        <tr>
+                                            <td><%=item.replace(".js", "").replaceAll("_", " ").toUpperCase()%></td>
+                                            <%let resul = item.match("st|ot|DLMP|post|ai")%>
+                                            <%if(resul=="st"){%>
+                                                <td>Search / stalking</td>
+                                            <%} else if(resul=="ot"){%>
+                                                <td>Special</td>
+                                            <%} else if(resul=="post"){%>
+                                                <td>Sender</td>
+                                            <%} else if(resul=="ai"){%>
+                                                <td>Intelegent</td>
+                                            <%} else if(resul=="DLMP"){%>
+                                                <td>Downloader</td>
+                                            <%} else {%>
+                                                <td>General</td>
+                                              <%}%>
+                                            <td class="GETMethod">GET</td>
+                                            <td><%=versi%></td>
+                                            <td><button class="btn" onclick="getCurrent('<%=item.replace(`.js`, ``)%>', '<%=apikey%>', '<%=user%>')"><i class="fas fa-link text-gray-500"></i> URl</button></td>
+                                        </tr>
+                                        <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+ <script src="/js/myTable.js"></script>

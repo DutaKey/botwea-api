@@ -1,0 +1,29 @@
+<div class="card shadow mb-4" style="width:100%">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">API branching, to lighten the load on servers for free replit users, you can also do a branching fork</h6><br/> <a href="https://replit.com/@vikodk67/Replapi-0" class="btn btn-warning btn-icon-split">
+                        <span class="icon text-gray-600">
+                         <i class="fas fa-code fa-1x text-gray-100"></i></span><span class="text">Fork replit</span>
+                          </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Url</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                      <% db_branching.forEach((item) => {%>
+                                            <td><%=item%></td>
+                                            <td><a href="https://<%=item%>" class="btn"><i class="fas fa-link text-gray-500"></i> URl</a></td>
+                                        </tr>
+                                        <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+ <script src="/js/myTable.js"></script>

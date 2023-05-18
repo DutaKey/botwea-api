@@ -1,0 +1,35 @@
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, shrink-to-fit=no, user-scalable=no">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css" integrity="sha512-uvXdJud8WaOlQFjlz9B15Yy2Au/bMAvz79F7Xa6OakCl2jvQPdHD0hb3dEqZRdSwG4/sknePXlE7GiarwA/9Wg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css">
+    <link href="../../../../css/vue.css" rel="stylesheet" type="text/css">
+    <title><%= title%></title>
+</head>
+
+<body onload="myDas()">
+  <main>
+  <div id="app">  
+    <h1><%= title%></h1>
+    <p><%-subtitle%></p>
+    <div class="badge -warn">
+        <div class="icon-slot">
+          <base-loading-spinner size="inline"></base-loading-spinner>
+         </div>
+        <div class="label">Loading content...</div>
+    </div>
+    <div class="showdata" id="midy" style="display: none"><%-content%></div>
+    <div class="showdata" id="blnk" style="word-wrap:break-word; overflow-wrap: break-word"></div>
+    <small class="note">
+      Warning!!, all available API documentation is not to be misused for evil, mischief, etc. be wise and resourceful in coding
+    </small>
+</main>
+  <script type="module" src="../../../../js/vue.main.js"></script>
+  <script src="../../../../js/load.min.js"></script>
+   <script src="../../../../vendor/jquery/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.prod.min.js"></script>
+</body>
+</html>

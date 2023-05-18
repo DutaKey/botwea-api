@@ -1,0 +1,61 @@
+<li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-fire"></i>
+          <span>API Docs</span>
+          </a>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">API Docs:</h6>
+            
+            <% for(let i = 0; i < 10; i++) { %>
+          <a class="collapse-item" href="#go-<%=readApi[i]%>" onclick="getCurrent('<%=readApi[i].replace(`.js`, ``)%>', '<%=apikey%>', '<%=user%>')"><%=readApi[i].replace(".js", "").replaceAll("_", " ")%></a>
+            <% } %>
+          <a style="color: blue;" class="collapse-item" href="/docs">View all docs</a>
+        </div>
+    </div>
+ </li>
+
+<li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#project" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-list"></i>
+          <span>Tools / Compiler</span>
+          </a>
+          <div id="project" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Tools:</h6>
+            <% readTool.forEach(resp => { %>
+          <a class="collapse-item" href="/page/tool/<%=resp%>?initial_scale=0.66"><%=resp.replace('.ejs', '').replaceAll('_', ' ')%></a>
+            <% }) %>
+        </div>
+    </div>
+ </li>
+
+<li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#web" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-server"></i>
+          <span>BRANCH</span>
+          </a>
+          <div id="web" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Branching fork:</h6>
+          <%if(db_branching==null){%>
+            <a class="collapse-item" href="#">Server disconnect</a>
+          <%} else {%>
+          <% for(let i = 0; i < 3; i++) { %>
+          <a class="collapse-item max-lines" href="https://<%=db_branching[i]%>"><%=db_branching[i]%></a>
+          <%}%>
+           <a style="color: blue;" class="collapse-item" href="/branch">Views all branch</a>
+         <%}%>
+        </div>
+    </div>
+ </li>
+<style>
+.max-lines {
+  display: block;/* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 2.6em;
+  line-height: 1.8em;
+  }
+</style>

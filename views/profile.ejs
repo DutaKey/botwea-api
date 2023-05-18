@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=no">
+    <meta name="author" content="Viko dwi kurniawan">
+    <title><%= title%></title>
+    <link href="../../css/load.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/myProfile.scss"/>
+    
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+     <link rel="icon" type="image/x-icon" href="<%=profileImg || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg'%>">
+  <link rel="shortcut icon" href="../../img/logo-67.png" type="image/x-icon" />
+</head>
+
+<body onload="myDas()">
+    <script type="text/javascript">
+<!-- HTML encoded -->
+<!--
+document.write(unescape('%20%20%20%3C%64%69%76%20%63%6C%61%73%73%3D%22%6C%6F%61%64%65%72%2D%62%67%22%3E%0A%20%20%20%20%20%20%3C%63%65%6E%74%65%72%3E%3C%62%72%3E%0A%20%20%20%20%20%20%3C%64%69%76%20%73%74%79%6C%65%3D%22%74%6F%70%3A%20%34%39%30%70%78%3B%22%20%63%6C%61%73%73%3D%22%63%6F%6C%2D%33%22%3E%0A%20%20%20%20%20%20%20%20%3C%64%69%76%20%63%6C%61%73%73%3D%22%73%6E%69%70%70%65%74%22%20%64%61%74%61%2D%74%69%74%6C%65%3D%22%64%6F%74%2D%66%6C%61%73%68%69%6E%67%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3C%64%69%76%20%63%6C%61%73%73%3D%22%73%74%61%67%65%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C%64%69%76%20%63%6C%61%73%73%3D%22%64%6F%74%2D%66%6C%61%73%68%69%6E%67%22%3E%3C%2F%64%69%76%3E%0A%20%20%20%20%20%20%20%20%20%20%3C%2F%64%69%76%3E%0A%20%20%20%20%20%20%20%20%3C%2F%64%69%76%3E%0A%20%20%20%20%20%20%3C%2F%64%69%76%3E%0A%20%20%20%20%20%20%3C%2F%63%65%6E%74%65%72%3E%0A%20%20%20%20%3C%2F%64%69%76%3E'));
+//-->
+    </script>
+   <div x-data="lw" class="bg-gray-100 dark:bg-gray-800 min-h-screen flex justify-center items-center">
+    <!-- CARD -->
+    <div class="w-full max-w-[330px] p-8 rounded-xl text-gray-800 dark:text-gray-400 overflow-hidden group 
+                    hover:shadow-2xl hover:shadow-sky-100/50 motion-safe:transition-all motion-safe:duration-700">
+        <figure class="relative w-40 h-40 m-0 mx-auto rounded-full outline outline-offset-4 outline-sky-500 
+                       before:content-[''] before:absolute before:block before:pointer-events-none before:rounded-full before:h-full before:w-full before:bg-sky-500 before:-z-[1]
+                       group-hover:before:scale-[2.5] motion-safe:before:transition-all 
+                       motion-safe:transform-gpu motion-safe:before:duration-500 before:origin-center group-hover:outline-sky-400"
+                >
+            <img 
+                 style="width: 300px; height: 100%; object-fit: cover;"
+                 class="rounded-full block max-w-full bg-sky-500 object-cover z-10 relative" src="<%=profileImg || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg'%>"
+                 alt="Avatar <%=username%>">
+        </figure>
+        <header class="motion-safe:translate-y-4 group-hover:translate-y-0 motion-safe:transition-transform motion-safe:transform-gpu motion-safe:duration-500">
+            <h3 class="font-semibold text-2xl text-center text-sky-500 mt-6 group-hover:text-gray-50 dark:group-hover:text-gray-800 relative"><%=username%></h3>
+            <p class="text-center group-hover:text-gray-50 dark:group-hover:text-gray-800 relative"><%=project%><br/>
+             <% if(username==req.session.username) { %><br/>
+               <div style="background-color: #03a9fc; color: white; border-radius: 5px;">
+              <form action="/post/image" enctype="multipart/form-data" method="POST">
+              <label for="img"><center>Change image</center></label>
+              <center>
+                <input type="file" id="img" onchange="upok()" style="display: none;" accept="image/x-png,image/gif,image/jpeg" name="image" required></input></center>
+                <div id="openbutton"></div>
+              </form>
+                
+               </div><br/>
+               <center><a style="color: black;" href="../../dasboard">Back dasboard</a></center>
+              <% } else { %>
+              <small>Last seen <%=lastOnline%></small>
+              <%}%>
+              </p><br/>
+                <div id="disqus_thread"></div>
+        </header>
+
+        <ul class="flex justify-center space-x-4 mt-16 text-sky-500 relative">
+          
+
+            <li class="motion-safe:translate-y-[100px] group-hover:translate-y-0 motion-safe:delay-300 motion-safe:transition">
+                <a href="../../register" class="" aria-label="Register">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- CARD END -->
+
+</div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://api-botwa-id.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script type="module" src="../../js/module-app-1.0.0.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { darkMode: 'class' }
+</script>
+<script src="../../js/visits.js"></script>
+<script src="../../vendor/jquery/jquery.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!-- bar -->
+                        <div class="col-xl-5 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Your apikey</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                              <%if(apikey==null){%>
+                                              <p style="color:red;">Error creating apikey</p>
+                                                <%} else {%>
+                                              <input type="text" class="form-control" autocomplete="off" style="position: relative; width:75%" placeholder="Apikey Result" class="elem-clip" value="<%=apikey%>" id="apikeycuy"></input><p></p>
+                        <button onclick="myClip()" style="background-color:transparent; border: none; transparent;background-repeat: no-repeat;cursor: pointer; overflow: hidden;"><i class="fas fa-clipboard text-gray-500"></i></button>
+                  
+                  &nbsp;<button onclick="myChangeAPI('/setting/apikey')" style="background-color: transparent; border: none; background-repeat: no-repeat; cursor: pointer; overflow: hidden;"><i class="fas fa-cog text-gray-500"></i></button>
+                                                <%}%>
+
+                                              </div>
+                                        </div>
+                                        <div class="col-auto">
+                                           <i class="fas fa-key fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-6 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Total register</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><%=account_database%></div>
+                                        </div>
+                                        <div class="col-auto">
+                                          <i class="fas fa-users fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Baygon limit</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><%=limit_key || "Your baygon limit is up"%></div>
+                                        </div>
+                                        <div class="col-auto">
+                                          <i class="fas fa-bullseye fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-6 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Ip address
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">Connect: <small><%=ip%></small><br>Account: <small><%=ip_asli%></small><br/> <div id="country">Country</div></div>                    
+       <% if(ip==ip_ban) { %>
+         <small style="color: red;">Banned</small>
+       <% } %>
+  </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-5 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Console errors:</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                              <textarea style="resize: none;" class="form-control" id="logs" rows="5" readonly></textarea>
+                                            </div><br/>
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Request IP: </div>
+                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                             <input type="text" class="form-control" id="logip"></input>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                      
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-2">
+
+                            <!-- Project Card Example -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Status server</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="small font-weight-bold">CPU load <span id="statscpu" class="float-right">0%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-info" id="progresscpu" role="progressbar" style="width: 0%"
+                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Memory: <span
+                                            class="float-right" id="memo">???</span></h4><br><br>
+                                    <h4 class="small font-weight-bold">VersionAPI: <span
+                                            class="float-right" id="os">???</span></h4>
+                                    <h4 class="small font-weight-bold">Manufacter: <span
+                                            class="float-right" id="manufactur">???</span></h4>
+                                    <h4 class="small font-weight-bold">Platform: <span
+                                            class="float-right" id="platform">???</span></h4>
+                                </div>
+                            </div>
+
+                        </div>
+                    <div class="row">
+
+                        <!-- Content Column -->
+                        
+                        
+                    </div>
+<script src="js/stats.js"></script>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=no, user-scalable=no">
+    <meta name="description" content="Pelayanan rest api simpel untuk para kreator bot whatsapp, telegram, line, DLL. dengan menggunakan replit sebagai hostingnya">
+    <meta name="author" content="Viko dwi kurniawan">
+    <title><%= title%></title>
+    <link href="./css/load.css" rel="stylesheet">
+    <link href="./css/tailwind.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/BPc50DQ/20230507-120302.png">
+</head>
+<body onload="myDas()">
+  <script type="text/javascript">
+<!-- HTML encoded -->
+<!--
+document.write(unescape('%20%20%20%3C%64%69%76%20%63%6C%61%73%73%3D%22%6C%6F%61%64%65%72%2D%62%67%22%3E%0A%20%20%20%20%20%20%3C%63%65%6E%74%65%72%3E%3C%62%72%3E%0A%20%20%20%20%20%20%3C%64%69%76%20%73%74%79%6C%65%3D%22%74%6F%70%3A%20%34%39%30%70%78%3B%22%20%63%6C%61%73%73%3D%22%63%6F%6C%2D%33%22%3E%0A%20%20%20%20%20%20%20%20%3C%64%69%76%20%63%6C%61%73%73%3D%22%73%6E%69%70%70%65%74%22%20%64%61%74%61%2D%74%69%74%6C%65%3D%22%64%6F%74%2D%66%6C%61%73%68%69%6E%67%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3C%64%69%76%20%63%6C%61%73%73%3D%22%73%74%61%67%65%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C%64%69%76%20%63%6C%61%73%73%3D%22%64%6F%74%2D%66%6C%61%73%68%69%6E%67%22%3E%3C%2F%64%69%76%3E%0A%20%20%20%20%20%20%20%20%20%20%3C%2F%64%69%76%3E%0A%20%20%20%20%20%20%20%20%3C%2F%64%69%76%3E%0A%20%20%20%20%20%20%3C%2F%64%69%76%3E%0A%20%20%20%20%20%20%3C%2F%63%65%6E%74%65%72%3E%0A%20%20%20%20%3C%2F%64%69%76%3E'));
+//-->
+  </script>
+  <main class="min-h-screen w-full grid place-items-center">
+  <div class="container mx-auto px-5">
+    <div class="navbar bg-white px-0 py-8 relative z-10">
+      <div class="navbar-start lg:w-auto">
+        <div class="dropdown">
+          <label tabindex="0" class="btn bg-transparent hover:bg-transparent border-none lg:hidden pr-4 pl-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+            </svg>
+          </label>
+          
+        </div>
+       <img src="../../img/logo-67.png" width="30px"></img> <a class="font-bold text-2xl pb-1 pr-4 text-gray-600 cursor-pointer"><%=title%></a>
+      </div>
+      <div class="navbar-center lg:w-1/2 hidden lg:flex text-gray-500 font-medium"><br/>
+        <ul class="menu menu-horizontal px-1"> <li></li></ul>
+        <ul class="menu menu-horizontal px-1">
+          <li><a href="/about" class="hover:text-purple-500">About</a></li>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-end">
+        <%if(req.session.sysGoto===randomperip) {%>
+          <a href="/dasboard" class="text-purple-500 hover:text-indigo-700 cursor-pointer py-3 px-4 capitalize tracking-wider font-semibold">Dasboard</a>
+        <%} else {%>
+        <a href="/login" class="text-purple-500 hover:text-indigo-700 cursor-pointer py-3 px-4 capitalize tracking-wider font-semibold">Login</a>
+        <%}%>
+        <a href="/page/tool/HTML_editor_lite.ejs" class="btn bg-purple-500 hover:bg-indigo-700 border-none text-white py-3.5 px-4 h-auto min-h-min capitalize tracking-wider">HTML editor</a>
+      </div>
+    </div>
+    <header class="relative">
+      <img src="/423148.jpg" alt="" class="w-full h-full rounded-2xl absolute inset-0 object-cover">
+    </header>
+    <div class="hero py-8">
+      <div class="hero-content text-center">
+        <div class="max-w-xl">
+          <span class="text-lg text-purple-500 font-medium block mb-3">Early access</span>
+          <h1 class="text-3xl md:text-5xl text-gray-900 font-bold"><%=subtit%></h1>
+          <p class="py-6 px-5 md:px-16 text-xl">Sign up now for completely free access to make apikey. <strong>total register <%=account_database%></strong></p>
+          
+          <div class="flex items-center justify-center gap-6 mt-2 flex-wrap">
+  
+            <a href="/register" class="btn btn-primary border-none bg-purple-500 hover:bg-indigo-700 normal-case px-6 text-base tracking-wider">Create Account</a>
+            
+          </div><br/>
+          <a href="#"
+      onclick="window.displayPreferenceModal();return false;"
+      id="termly-consent-preferences">Consent Preferences</a><br><br>
+          <strong><a href="https://github.com/vikodk67"><span>Copyright &copy; Viko API 2023</span></a></strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="./js/tailwindcss.js"></script>
+<script src="./js/visits.js"></script>
+<script src="./vendor/jquery/jquery.min.js"></script>
+<style>
+html,
+body {
+  background: #fff !important;
+  position: relative;
+  height: 720px;
+}
+header {
+  min-height: clamp(12.5rem, 60vw, 21rem);
+}
+</style>
+<script
+  type="text/javascript"
+  src="https://app.termly.io/embed.min.js"
+  data-auto-block="on"
+  data-website-uuid="c2278f7a-f9ac-43a8-b494-b90224e0a758"
+></script>
+</body>
+</html>

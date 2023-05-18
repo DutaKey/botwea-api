@@ -1,0 +1,627 @@
+.loader-bg{
+  position: fixed;
+  z-index: 999999;
+  background: #ffffff;
+  width: 100%;
+  height: 200%;
+}
+.loader-p{
+  border: 0 solid transparent;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: calc(50vh - 75px);
+  left: calc(50vw - 75px);
+}
+
+.loader-p:before, .loader-p:after{
+  content: '';
+  border: 1em solid #14c1e3;
+  border-radius: 50%;
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: loader 4s linear infinite;
+  opacity: 0;
+}
+
+.loader-p:before{
+  animation-delay: 0.1s;
+}
+
+@keyframes loader{
+  0%{
+    transform: scale(0);
+    opacity: 0;
+  }
+  30%{
+    opacity: 1;
+  }
+  100%{
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+img.a {
+  border-radius: 50%;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  z-index: 1;
+}
+
+
+/*end of custom preloader*/
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes spin3D {
+  from {
+    transform: rotate3d(.5,.5,.5, 360deg);
+  }
+  to{
+    transform: rotate3d(0deg);
+  }
+}
+
+@keyframes configure-clockwise {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes configure-xclockwise {
+  0% {
+    transform: rotate(45deg);
+  }
+  25% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(-135deg);
+  }
+  75% {
+    transform: rotate(-225deg);
+  }
+  100% {
+    transform: rotate(-315deg);
+  }
+}
+
+@keyframes pulse {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: .25;
+    transform: scale(.75);
+  }
+}
+
+/* GRID STYLING */
+
+.spinner-box {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+/* SPINNING CIRCLE */
+
+.leo-border-1 {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgb(63,249,220);
+  background: linear-gradient(0deg, rgba(63,249,220,0.1) 33%, rgba(63,249,220,1) 100%);
+  animation: spin3D 1.8s linear 0s infinite;
+}
+
+.leo-core-1 {
+  width: 100%;
+  height: 100%;
+  background-color: #37474faa;
+  border-radius: 50%;
+}
+
+.leo-border-2 {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgb(251, 91, 83);
+  background: linear-gradient(0deg, rgba(251, 91, 83, 0.1) 33%, rgba(251, 91, 83, 1) 100%);
+  animation: spin3D 2.2s linear 0s infinite;
+}
+
+.leo-core-2 {
+  width: 100%;
+  height: 100%;
+  background-color: #1d2630aa;
+  border-radius: 50%;
+}
+
+/* ALTERNATING ORBITS */
+
+.circle-border {
+  width: 150px;
+  height: 150px;
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgb(63,249,220);
+  background: linear-gradient(0deg, rgba(63,249,220,0.1) 33%, rgba(63,249,220,1) 100%);
+  animation: spin .8s linear 0s infinite;
+}
+
+.circle-core {
+  width: 100%;
+  height: 100%;
+  background-color: #1d2630;
+  border-radius: 50%;
+}
+
+/* X-ROTATING BOXES */
+
+.configure-border-1 {
+  width: 115px;
+  height: 115px;
+  padding: 3px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fb5b53;
+  animation: configure-clockwise 3s ease-in-out 0s infinite alternate;
+}
+
+.configure-border-2 {
+  width: 115px;
+  height: 115px;
+  padding: 3px;
+  left: -115px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(63,249,220);
+  transform: rotate(45deg);
+  animation: configure-xclockwise 3s ease-in-out 0s infinite alternate;
+}
+
+.configure-core {
+  width: 100%;
+  height: 100%;
+  background-color: #1d2630;
+}
+
+/* PULSE BUBBLES */
+
+.pulse-container {
+  width: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pulse-bubble {
+  width: 15px;
+  height: 15px;
+  border-radius: 60%;
+  background-color: #3ff9dc;
+}
+
+.pulse-bubble-1 {
+    animation: pulse .4s ease 0s infinite alternate;
+}
+.pulse-bubble-2 {
+    animation: pulse .4s ease .2s infinite alternate;
+}
+.pulse-bubble-3 {
+    animation: pulse .4s ease .4s infinite alternate;
+}
+
+/* SOLAR SYSTEM */
+
+.solar-system {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.orbit {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #fafbfC;
+	border-radius: 50%;
+} 
+
+.earth-orbit {
+	width: 165px;
+	height: 165px;
+  -webkit-animation: spin 12s linear 0s infinite;
+}
+
+.venus-orbit {
+	width: 120px;
+	height: 120px;
+  -webkit-animation: spin 7.4s linear 0s infinite;
+}
+
+.mercury-orbit {
+	width: 90px;
+	height: 90px;
+  -webkit-animation: spin 3s linear 0s infinite;
+}
+
+.planet {
+	position: absolute;
+	top: -5px;
+  width: 10px;
+  height: 10px;
+	border-radius: 50%;
+  background-color: #3ff9dc;
+}
+
+.sun {
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	background-color: #ffab91;
+}
+
+.leo {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+}
+
+.blue-orbit {
+	width: 165px;
+	height: 165px;
+  border: 1px solid #91daffa5;
+  -webkit-animation: spin3D 3s linear .2s infinite;
+}
+
+.green-orbit {
+	width: 120px;
+	height: 120px;
+  border: 1px solid #91ffbfa5;
+  -webkit-animation: spin3D 2s linear 0s infinite;
+}
+
+.red-orbit {
+	width: 90px;
+	height: 90px;
+  border: 1px solid #ffca91a5;
+  -webkit-animation: spin3D 1s linear 0s infinite;
+}
+
+.white-orbit {
+	width: 60px;
+	height: 60px;
+  border: 2px solid #ffffff;
+  -webkit-animation: spin3D 10s linear 0s infinite;
+}
+
+.w1 {
+  transform: rotate3D(1, 1, 1, 90deg);
+}
+
+.w2 {
+  transform: rotate3D(1, 2, .5, 90deg);
+}
+
+.w3 {
+  transform: rotate3D(.5, 1, 2, 90deg);
+}
+
+.three-quarter-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #fb5b53;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin .5s linear 0s infinite;
+}
+div.heder {
+  max-width: 300px;
+  min-width: 100px;
+}
+/*LOADING FLOATING */
+
+
+#container {
+    
+    color: #02cff7;
+    position: absolute;
+    margin: auto;
+    width: 140px;
+    right: 0px;
+    top: 200;
+
+    filter: url(#threshold) blur(0.4px);
+}
+#text1,
+#text2 {
+    position: absolute;
+    width: 100%;
+    display: inline-block;
+
+    font-family: "Raleway", sans-serif;
+    font-size: 13pt;
+
+    text-align: center;
+
+    user-select: none;
+}
+
+/* notifikasi centang */
+.tick {
+  position: relative;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background: gray;
+}
+.tick:before, .tick:after {
+  background: white;
+  position: absolute;
+  content: " ";
+  left: 30%;
+  right: 30%;
+  top: 50%;
+  height: 2px;
+  bottom: auto;
+}
+.tick-success {
+  
+  background: #14d8ff;
+  transform: rotate(45deg);
+}
+.tick-success:after {
+  height: 2px;
+  bottom: 25%;
+  left: 30%;
+  right: 45%;
+  top: auto;
+}
+.tick-success:before {
+  width: 2px;
+  height: auto;
+  bottom: 25%;
+  top: 20%;
+  left: 55%;
+  right: auto;
+}
+.tick-error {
+  background: #0e1ce8;
+  transform: rotate(45deg);
+}
+.tick-error:after {
+  width: 2px;
+  height: auto;
+  top: 20%;
+  bottom: 20%;
+  left: 50%;
+  right: auto;
+  margin-left: -1px;
+}
+.tick-error:before {
+  left: 20%;
+  right: 20%;
+  top: 50%;
+  bottom: auto;
+  margin-top: -1px;
+  height: 2px;
+}
+
+/**
+ * ==============================================
+ * Dot Floating
+ * ==============================================
+ */
+.dot-floating {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9880ff;
+  color: #9880ff;
+  animation: dot-floating 3s infinite cubic-bezier(0.15, 0.6, 0.9, 0.1);
+}
+.dot-floating::before, .dot-floating::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+.dot-floating::before {
+  left: -12px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9880ff;
+  color: #9880ff;
+  animation: dot-floating-before 3s infinite ease-in-out;
+}
+.dot-floating::after {
+  left: -24px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9880ff;
+  color: #9880ff;
+  animation: dot-floating-after 3s infinite cubic-bezier(0.4, 0, 1, 1);
+}
+
+@keyframes dot-floating {
+  0% {
+    left: calc(-50% - 5px);
+  }
+  75% {
+    left: calc(50% + 105px);
+  }
+  100% {
+    left: calc(50% + 105px);
+  }
+}
+@keyframes dot-floating-before {
+  0% {
+    left: -50px;
+  }
+  50% {
+    left: -12px;
+  }
+  75% {
+    left: -50px;
+  }
+  100% {
+    left: -50px;
+  }
+}
+@keyframes dot-floating-after {
+  0% {
+    left: -100px;
+  }
+  50% {
+    left: -24px;
+  }
+  75% {
+    left: -100px;
+  }
+  100% {
+    left: -100px;
+  }
+}
+/**
+ * ==============================================
+ * Dot Flashing
+ * ==============================================
+ */
+.dot-flashing {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9880ff;
+  color: #9880ff;
+  animation: dot-flashing 1s infinite linear alternate;
+  animation-delay: 0.3s;
+}
+.dot-flashing::before, .dot-flashing::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+.dot-flashing::before {
+  left: -15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9880ff;
+  color: #9880ff;
+  animation: dot-flashing 1s infinite alternate;
+  animation-delay: 0s;
+}
+.dot-flashing::after {
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9880ff;
+  color: #9880ff;
+  animation: dot-flashing 1s infinite alternate;
+  animation-delay: 1s;
+}
+
+@keyframes dot-flashing {
+  0% {
+    background-color: #9880ff;
+  }
+  50%, 100% {
+    background-color: rgba(152, 128, 255, 0.2);
+  }
+}
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 5px solid #47b6ff;
+  width: 20px;
+  height: 20px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.GETMethod {
+  color: blue;
+}
+.POSTMethod {
+  color: #820afa;
+}
+.statusOK {
+  color: #3efa0a;
+}
+.statusWARN {
+  color: #faa20a;
+}
+.statusERROR {
+  color: #fa0a0a;
+}

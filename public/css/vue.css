@@ -1,0 +1,227 @@
+:root {
+  --color-brand-dark-purple: #441C99;
+  --color-neutral-20: #E4E3E8;
+  --color-blue-50: #0F47C6;
+  --color-blue-40: #145DEB;
+  --color-blue-10: #EAF1FF;
+  --color-orange-60: #B6540B;
+  --color-orange-50: #E27122;
+  --color-orange-10: #FFF4ED;
+  --color-info-text: var(--color-blue-50);
+  --color-info-border: var(--color-blue-40);
+  --color-info-bg: var(--color-blue-10);
+  --color-warn-text: var(--color-orange-60);
+  --color-warn-border: var(--color-orange-50);
+  --color-warn-bg: var(--color-orange-10);
+}
+
+.loading-spinner {
+  --size: 2rem;
+  --stroke-width: 0.25rem;
+  --color-track: var(--color-neutral-20);
+  --color-spinner: var(--color-brand-dark-purple);
+  --rotation-speed: 1000ms;
+  --grow-speed: calc(var(--rotation-speed) * 1.5);
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+.loading-spinner .spinner {
+  width: var(--size);
+  height: var(--size);
+  margin-inline: auto;
+}
+.loading-spinner .spinner .container {
+  animation: rotate-1turn var(--rotation-speed) linear infinite;
+}
+.loading-spinner .spinner .track,
+.loading-spinner .spinner .indicator {
+  fill: transparent;
+  stroke-width: var(--stroke-width);
+}
+.loading-spinner .spinner .track {
+  stroke: var(--color-track);
+}
+.loading-spinner .spinner .indicator {
+  fill: transparent;
+  stroke: var(--color-spinner);
+  stroke-dasharray: 13.2 74.8;
+  stroke-linecap: round;
+  animation: spinner-grow var(--grow-speed) ease-in-out alternate infinite;
+}
+.loading-spinner .label {
+  margin-block-start: 0.5rem;
+}
+.loading-spinner.loading-spinner--small .spinner {
+  --size: 1rem;
+}
+.loading-spinner.loading-spinner--inline {
+  display: inline-flex;
+  width: fit-content;
+  flex-direction: row;
+}
+.loading-spinner.loading-spinner--inline .spinner {
+  --size: 1em;
+  --color-spinner: currentcolor;
+  margin-block-start: 0.1em;
+  margin-inline: 0;
+}
+.loading-spinner.loading-spinner--inline .label {
+  margin-block-start: 0;
+  margin-inline-start: 0.5rem;
+}
+
+@keyframes rotate-1turn {
+  to {
+    transform: rotate(1turn);
+  }
+}
+@keyframes spinner-grow {
+  to {
+    stroke-dasharray: 66 22;
+  }
+}
+@media (prefers-reduced-motion) {
+  .loading-spinner {
+    display: none;
+  }
+  .loading-spinner * {
+    animation: none;
+  }
+}
+body {
+  --color-text: #1C1C21;
+  min-height: 50vh;
+  padding: 2rem;
+  font-family: sans-serif;
+  color: var(--color-text);
+}
+body > * + * {
+  margin-block-start: 2rem;
+}
+
+main {
+  max-width: 90%;
+  margin-inline: auto;
+}
+
+p {
+  line-height: 1.4;
+}
+
+code {
+  padding-inline: 0.2em;
+  border-radius: 0.2rem;
+  background-color: gainsboro;
+  font-size: 112.5%;
+}
+
+.badge {
+  --border-radius: 1rem;
+  --color-text: var(--color-info-text);
+  --color-border: var(--color-info-border);
+  --color-bg: var(--color-info-bg);
+  display: flex;
+  width: max-content;
+  padding-block: 0.25rem;
+  padding-inline-start: 0.35rem;
+  padding-inline-end: 0.5rem;
+  flex-direction: row;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge > * + * {
+  margin-inline-start: 0.5em;
+}
+.badge.-warn {
+  --color-text: var(--color-warn-text);
+  --color-border: var(--color-warn-border);
+  --color-bg: var(--color-warn-bg);
+}
+
+section {
+  margin-block-start: 2rem;
+}
+section .example {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  border: 1px solid silver;
+  border-radius: 0.25rem;
+}
+section .example > * + * {
+  margin-block-start: 1rem;
+}
+section .example + code {
+  display: block;
+  margin-block-start: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  color: gainsboro;
+  background-color: #222;
+}
+section .badge {
+  margin-inline: auto;
+}
+
+.note {
+  display: block;
+  margin-block-start: 1rem;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  background-color: palegoldenrod;
+}
+
+.url {
+  font-family: "Lucida Console", "Courier New", monospace;
+  color: #01ad01;
+  border-radius: 5px;
+  width: 90%;
+  height: 23px;
+  background-color: #ffffff;
+}
+.key {
+  font-family: "Lucida Console", "Courier New", monospace;
+  color: #8f0000;
+  border-radius: 5px;
+  width: 90%;
+  height: 23px;
+  background-color: #ffffff;
+}
+.query {
+  font-family: "Lucida Console", "Courier New", monospace;
+  color: #07b4ed;
+  border-radius: 5px;
+  width: 90%;
+  height: 23px;
+  background-color: #ffffff;
+}
+.querybg {
+  font-weight: bold;
+  font-size: 14px;
+  color: #00059e;
+  width: 63px;
+  border-radius: 5px;
+  background-color: #adfaff;
+}
+.urlbg {
+  font-weight: bold;
+  font-size: 14px;
+  color: #009e00;
+  width: 50px;
+  border-radius: 5px;
+  background-color: #74fb74;
+}
+.keybg {
+  font-weight: bold;
+  font-size: 14px;
+  color: #8f0000;
+  width: 60px;
+  border-radius: 5px;
+  background-color: #ff9999;
+}

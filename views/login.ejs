@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title><%= title%> - Login</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../../css/load.css" rel="stylesheet">
+</head>
+
+<body onload="myDas()" class="bg-gradient-primary">
+<div class="loader-bg">
+      <center><br>
+      <div class="col-3">
+        <div class="snippet" data-title="dot-flashing">
+          <div class="stage">
+            <div class="dot-flashing"></div>
+          </div>
+        </div>
+      </div>
+    </center>
+</div>
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                          
+                            <div class="text-center">
+                              
+                              <img src="../../img/logo-67.png" width="80px"></img><br/>
+                                <h1 class="h4 text-gray-900 mb-4">Login account<br> <strong><%=title%></strong></h1>
+                            </div>
+                          <% if(log==""){ %>
+                               
+                              <% } else { %>
+                                    <div class="card bg-warning text-white shadow">
+                                        <div class="card-body">
+                                            Warn!!
+                                            <div class="text-white-50 small"><%=log%></div>
+                                        </div>
+                                    </div>
+                                <%}%>
+                              <% if(warning==1){ %>
+                                    <div class="card bg-warning text-white shadow">
+                                        <div class="card-body">
+                                            Warn!!
+                                            <div class="text-white-50 small">This account is not registered</div>
+                                        </div>
+                                    </div>
+                              <% } %>
+                              <% if(warningWrongpw==1){ %>
+                                    <div class="card bg-danger text-white shadow">
+                                        <div class="card-body">
+                                            Warn!!
+                                            <div class="text-white-50 small">Wrong password</div>
+                                        </div>
+                                    </div>
+                              <% } %>
+                            <form name="form" action="/auth/login" method="post" id="formpost" class="user">
+                              
+                                <br/><center><div class="loading"></div></center>
+                                <center><p style="color:blue; font-size: 12px;" id="valid"></p></center>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+ <p id="drs"></p>
+ <input name="gmail" type="gmail" class="form-control form-control-user" id="ingmail" placeholder="Username" onkeypress="return AvoidSpace(event);" onblur="this.value=removeSpaces(this.value);" maxlength="14" required>
+                                    </div>
+                                    <div class="col-sm-6">
+<center><p style="color:blue; font-size: 12px;" id="validp"></p></center>
+<input type="password" name="password" class="form-control form-control-user" id="myPas" placeholder="password" autocomplete="off" required><br>
+                                   <p style="font-size: 12px; position: relative; bottom: 9px;"><input type="checkbox" onclick="myPass()"> Show Password</input></p>
+                                    </div>
+                                </div>
+                                <input type="submit" class="btn btn-primary btn-user btn-block" value="Log in"></input>
+                                <hr>
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <p class="small">
+                                
+                                </p><br>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="/register">Don't have an account? Register!</a><br/>
+                             <hr> <a class="small" href="/">Home page</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../../js/action.js"></script>
+    <script src="../../js/sb-admin-2.min.js"></script>
+    <script src="../../js/validate.js"></script>
+    <script src="../js/notify.min.js"></script>
+    <script src="../js/notify.js"></script>
+</body>
+
+ </html>

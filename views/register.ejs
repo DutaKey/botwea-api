@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title><%= title%> - Register</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <img src="../../img/logo-67.png" width="80px"></img><br/>
+                                <h1 class="h4 text-gray-900 mb-4">Create a new account<br> <strong><%=title%></strong></h1>
+                              <% if(alertAlready==1){ %>
+                               
+                                    <div class="card bg-warning text-white shadow">
+                                        <div class="card-body">
+                                            This account is already registered
+                                        </div>
+                                    </div>
+                              <% } %>
+                              <% if(alertRegis==1){ %>
+                                    <div class="card bg-success text-white shadow">
+                                        <div class="card-body">
+                                            Success
+                                            <div class="text-white-50 small">Your account has been successfully created, redirect to the login page...</div>
+                                        </div>
+                                    </div>
+                                <script>
+                                 setInterval(function(){location.href= `/login<%=""||"?redirect_url="+redirect%>`},1700)
+                                </script>
+                                <%}%><br/>
+                            </div>
+                            <form name="form" action="/auth/register/<%=randomTxt%>" method="post" class="user">
+                                
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+
+ <input name="gmail" type="gmail" class="form-control form-control-user" id="ingmail" placeholder="Username" onkeypress="return AvoidSpace(event);" onblur="this.value=removeSpaces(this.value);" maxlength="14" autocomplete="off" required><p style="color:blue; font-size: 11px; position: relative; bottom: 0px;" id="valid"></p>   
+                                    </div>
+                                    <div class="col-sm-6">
+<input type="password" name="password" class="form-control form-control-user" id="myPas" placeholder="password" maxlength="90" autocomplete="off"  required><br>
+                                  <p style="color:blue; font-size: 11px; position: relative; bottom: 22px;" id="validp"></p>
+                                   <p style="font-size: 12px; position: relative; bottom: 9px;"><input type="checkbox" onclick="myPass()"> Show Password</input></p>
+                                  <div class="dropdown no-arrow mb-4 show">
+                                  <button style="font-size: 12px;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     Need for a project?
+                                  </button>
+                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="">
+                                            <a class="dropdown-item" onclick="selector('Web developers')" href="#">Web developers</a>
+                                            <a class="dropdown-item" onclick="selector('Backend Develop')" href="#">Backend developers</a>
+                                            <a class="dropdown-item" onclick="selector('BOT developers')" href="#">BOT developers</a>
+                                            <a class="dropdown-item" onclick="selector('Other')" href="#">Other</a>
+                                        </div>
+                                    </div><input type="text" id="action" name="forProject" class="form-control form-control-user" placeholder="Select your project" maxlength="19" autocomplete="off" required="true"><br/>
+                <div style="transform: scale(0.80); -webkit-transform: scale(123%); transform-origin: 0 0;-webkit-transform-origin: 0 0; align-items: center; justify-content: center;" class="text-center"><%-captcha%></div>
+                                    </div>
+                                  
+                                </div>
+                                <%if(buttonDisable==1){%>
+                                <input type="submit" class="btn btn-primary btn-user btn-block" value="Register account" disabled>
+                                </input>
+                                  <%}else{%>
+                                <input id="buttonsub" type="submit" class="btn btn-primary btn-user btn-block" value="Register account">
+                                </input>
+                                  <%}%>
+                                <hr>
+                                    
+                              <hr>
+                            </form>
+                            <br/>
+                            <div class="text-center">
+                                <a class="small" href="/login">Already have an account? Login!</a><br/>
+                             <hr> <a class="small" href="/">Home page</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- core JavaScript-->
+
+    <script src="../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../../js/sb-admin-2.min.js"></script>
+    <script src="../../js/showHide-password.js"></script>
+    <script src="../../js/action.js"></script>
+</body>
+
+</html>
